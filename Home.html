@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-    
+    <title>Responsive Language Boxes with Images</title>
     <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
         :root {
             --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
             Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
@@ -14,44 +19,101 @@
         }
 
         .main-container {
-            display: flex; /* Use flexbox for layout */
-            justify-content: space-between; /* Space between the boxes */
-            align-items: center; /* Center vertically */
-            width: 100%; /* Full width */
-            max-width: 800px; /* Optional max width */
-            margin: 0 auto; /* Center the container */
-            background: #ffffff;
-            border: 1px solid #000000;
-            border-radius: 17px;
-            padding: 20px; /* Add padding */
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            height: 167px;
+            margin: 0 auto;
+            top: -50px;
+            background: #43afe5;
+            border-radius: 32px;
         }
 
-        .box, .box1 {
-            width: 100px; /* Set a fixed width */
-            height: 100px; /* Set a fixed height */
-            overflow: hidden; /* Hide overflow */
+        .search-container {
+        position: relative; /* Set position to relative */
+        left: 3px; /* Move to the left by 20px */
+        top: -50px; /* Move up by 40px */
+        text-align: left; /* Center the text inside the container */
+        margin: 7px; /* Optional margin */
+        
+    }
+
+    .search-container input {
+        padding: 10px;
+        width: 350px;
+        
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+        .box-container {
+            display: flex; /* Use flexbox for layout */
+            flex-wrap: wrap; /* Allow boxes to wrap */
+            justify-content: center; /* Center boxes horizontally */
+            margin: 20px; /* Margin around the container */
+            margin-top: -40px;
+        }
+
+        .box {
+            width: 150px; /* Set a fixed width */
+            height: 150px; /* Set a fixed height */
             border: 1px solid #ccc; /* Optional border */
             border-radius: 10px; /* Optional rounded corners */
             display: flex; /* Use flexbox for centering */
             justify-content: center; /* Center horizontally */
             align-items: center; /* Center vertically */
             background-color: #2c0909; /* Background color */
+            color: white; /* Text color */
+            margin: 10px; /* Margin around the box */
+            overflow: hidden; /* Hide overflow to maintain box shape */
         }
 
-        .box img, .box1 img {
-            max-width: 100%; /* Responsive image */
-            max-height: 100%; /* Responsive image */
+        .box img {
+            width: 100%; /* Make image fill the box */
+            height: 100%; /* Make image fill the box */
+            object-fit: cover; /* Cover the box while maintaining aspect ratio */
         }
+        .main-container h1 {
+    margin: 0; /* Remove top margin */
+    padding-top: 70px; /* Optional: Add padding for spacing */
+    text-align: center;
+    color: white;
+    
+}
     </style>
 </head>
 <body>
     <div class="main-container">
-        <div class="box">
-            <img src="programming.png" alt="Description of image" />
-        </div>
-        <div class="box1">
-            <img src="flag.jpeg" alt="Description of image" />
-        </div>
+        <h1>learn programming language</h1>
     </div>
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Search for a language..." onkeyup="filterLanguages()">
+    </div>
+    <div class="box-container" id="language-boxes">
+        <div class="box" data-language="Python"><img src="python.png" alt="Python"></div>
+        <div class="box" data-language="js"><img src="js.png" alt="js"></div>
+        <div class="box" data-language="Java"><img src="java.png" alt="Java"></div>
+        <div class="box" data-language="C++"><img src="cpalas.png" alt="C++"></div>
+        <div class="box" data-language="php"><img src="php.png" alt="php"></div>
+        <div class="box" data-language="flutter"><img src="flutter.png" alt="flutter"></div>
+        <div class="box" data-language="c#"><img src="charch.png" alt="c#"></div>
+        
+    </div>
+
+    <script>
+        function filterLanguages() {
+            const input = document.getElementById('search').value.toLowerCase();
+            const boxes = document.querySelectorAll('.box');
+
+            boxes.forEach(box => {
+                const language = box.getAttribute('data-language').toLowerCase();
+                if (language.includes(input)) {
+                    box.style.display = ''; // Show box
+                } else {
+                    box.style.display = 'none'; // Hide box
+                }
+            });
+        }
+    </script>
 </body>
 </html>

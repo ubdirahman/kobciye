@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <style>
+        body {
+    font-family: var(--default-font-family);
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+:root {
+  --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+    "Source Han Sans CN", sans-serif;
+}
+
+.main-container {
+  overflow: hidden;
+}
+
+.main-container,
+.main-container * {
+  box-sizing: border-box;
+}
+
+input,
+select,
+textarea,
+button {
+  outline: 0;
+}
+
+.main-container {
+  position: relative;
+  width: 304px;
+  height: 520px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 17px;
+}
+
+.main-container1 {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    background: #43afe5;
+    border-radius: 17px 17px 0 0;
+}
+
+.signup-container {
+    padding: 25px;
+}
+
+h2 {
+    text-align: left;
+    position: relative;
+   
+    top: -20px;
+   
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #43afe5;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #43afe5;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #39a1d0;
+}
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="main-container1"></div>
+        <div class="signup-container">
+            <form action="action_pag e.php" method="post">
+                <h2>Sign Up</h2>
+                <div class="input-group">
+                    <label for="uname">Username</label>
+                    <input type="text" placeholder="Enter Username" name="uname" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" placeholder="Enter Email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="psw">Password</label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+                <div class="input-group">
+                    <label for="psw-repeat">Repeat Password</label>
+                    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+                </div>
+                <button type="submit">Sign Up</button>
+                <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
